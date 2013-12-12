@@ -1,0 +1,20 @@
+10/31/2013:
+
+Progress:
+-made repo
+-started to clean data in Excel
+-researched all the holes in the data I found
+
+Where to go next:
+-data ends in 2011 - need to get the data through at least 2012
+	
+-who are these agencies
+	*why is NCI doing research funding?
+
+
+11/14/2013
+-don't change your Excel data - work in R instead
+-try to aggregate the "funding organizations" column so that there's not multiple copies
+-look at the break-down of research funding by topic if total funding doesn't look good
+-load the ENTIRE data set into R — it's okay if you have empty columns because you can delete them later.
+

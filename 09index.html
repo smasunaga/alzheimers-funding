@@ -5,18 +5,6 @@
         <title>Funding for Alzheimer's research over the years</title>
         <script src="assets/d3.v3/d3.v3.js"></script>
         <style type="text/css">
-
-            body {
-                font-family: Times;
-                font-size: 8px:
-                font-weight: 1px;
-                position: absolute;
-                top:10px;
-                left: 120px;
-                text-align: left;
-                background-color: #fffafa
-          }
-
             svg {
                 border: 2px #ffffff;
             }
@@ -30,7 +18,7 @@
                 stroke: black;
                 stroke-width:1px;
                 shape-rendering: crispEdges;
-                font-family: Times;
+                font-family: Helvetica;
                 font-size: 7px;
             }
 
@@ -38,17 +26,18 @@
         </style>
     </head>
     <body>
-        <h3> Following the money for Alzheimer's disease research</h3>
-        <p style="font-size:11px">Federal funding for Alzheimer's disease research comes from a variety of sources. Though<br> dominated by agencies like the NIH and NIA, nonprofit organizations like the Alzheimer's<br> Association and venture philanthropy groups like the Alzheimer's Drug Discovery<br> Foundation play increasingly important roles as federal funding decrease. Click on the year<br> to see how funding changes and which agencies become major players.</p>
-
-         <select id="selection">
+        <select id="selection">
             <option>Select year</option>
-            <option id="2008">2008</option>
-            <option id="2009">2009</option>
-            <option id="2010">2010</option>
-            <option id="2011">2011</option>
+            <option value="http://smasunaga.github.io/bar-chart/">2008</option>
+            <option >2009</option>
+            <option>2010</option>
+            <option>2011</option>
         </select>
         <script type="text/javascript">
+
+        d3.select("body").append("h1").text("Funding for Alzheimer's research over the years");
+        d3.select("body").append("p").text("Federal funding for Alzheimer's disease has been steadily decreasing since its high in 2010. This chart shows the good times of funding, as well as the beginning of the descent.");
+
 
             var margin = {top: 20, right: 10, bottom: 20, left: 10};
 
@@ -62,7 +51,7 @@
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
             //here's how you load data 
-            d3.json("working/2011.json", function(err, funding) {
+            d3.json("working/2009.json", function(err, funding) {
 
                 //console.log(funding)
                 funding.forEach(function(d){ 
@@ -96,8 +85,7 @@
 
                 var xAxis = d3.svg.axis()
                     .scale(x)
-                    .orient("bottom")
-                    .tickPadding([8]);
+                    .orient("bottom");
 
                 var yAxis= d3.svg.axis()
                     .scale(y)
@@ -147,13 +135,12 @@
                 //     .call(yAxis);
 
                 d3.select('#selection')
-                   .on(#2008), function(d){
-                        console.log(this.options[working/2008.json].value);
+                   .on('change', function(d){
+                        console.log(this.options[this.selectedIndex].value);
                         //window.location = this.options[this.selectedIndex].value
 
-                d3.selectAll('.bar')
-                    .on()
-                    }
+                        d3.selectAll('.bar')
+                    })
 
             });
           

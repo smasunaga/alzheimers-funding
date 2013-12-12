@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Funding for Alzheimer's research over the years</title>
+        <script src="d3.v3/d3.v3.js"></script>
+        <style type="text/css">
+            svg {
+                border: 2px solid black;
+            }
+
+            .bar {
+                fill: #cc66ff;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            d3.select("body").append("h1").text("Funding for Alzheimer's research over the years")
+            d3.select("body").append("p").text("Federal funding for Alzheimer's disease has been steadily decreasing since its high in 2010. This chart shows the good times of funding, as well as the beginning of the descent.")
+
+            var margin = {top: 20, right: 10, bottom: 20, left: 10};
+
+            var width = 1000 - margin.left - margin.right,
+                height = 250 - margin.top - margin.bottom;
+
+            var svg = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            //here's how you load data 
+            d3.csv("fed-funding-years.csv", function(error, funding) {
+                funding.forEach(function(d){
+					console.log(funding)
+
+			//recasts total_funding and year as numbers, not strings 
+			d.total_funding = +d.total_funding;
+            d.year = +d.year;
+
+            })
+
+            var bar = svg.selectAll(".bar")
+                .data(funding)
+                .enter()
+                .append("rect")
+                .attr("height", function(d) { return d.TotalADResearchFunding; })
+                .attr("width", 2)
+                .attr("x", function(d) { return d.FY; })
+                .attr("y", function(d) { return d.TotalADResearchFunding })
+                .attr("class", "bar");
+
+            var yScale = d3.scale.linear()
+                .domain( [0, d3.max(funding, function(d) { return d.TotalADResearchFunding; })])
+                .range([0, height]);
+
+            var axisScale = d3.scale.linear()
+                .domain([0, d3.max(funding, function(d) { return d.TotalADResearchFunding; })])
+                .range([height, 0]);
+
+            var xScale = d3.scale.linear()
+                .domain( [2008, d3.max(funding, function(d) { return d.FY; })])
+                .range([0, width]);
+            
+            })
+           
+          
+        </script>
+        <select>
+            <option>Overall</option>
+            <option>2008</option>
+            <option>2009</option>
+            <option>2010</option>
+            <option>2011</option>
+        </select>
+
+    </body>
+</html>     

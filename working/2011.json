@@ -1,0 +1,250 @@
+[
+  {
+    "key":"Administration on Aging (AoA)",
+    "abbrev": "AoA",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":3227887
+    }
+  },
+  {
+    "key":"Agency for Healthcare Research and Quality (AHRQ)",
+    "abbrev": "AHRQ",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":480641
+    }
+  },
+  {
+    "key":"Alzheimer's Association",
+    "abbrev": "AA",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":11666775
+    }
+  },
+  {
+    "key":"Alzheimer's Drug Discovery Foundation",
+    "abbrev": "ADDF",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":5084685
+    }
+  },
+  {
+    "key":"Alzheimer's Research UK",
+    "abbrev": "ARUK",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":4007670.16
+    }
+  },
+  {
+    "key":"Centers for Disease Control and Prevention (CDC)",
+    "abbrev": "CDC",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":240000
+    }
+  },
+  {
+    "key":"Department of Veterans Affairs (VA)",
+    "abbrev": "VA",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":5617012
+    }
+  },
+  {
+    "key":"Fogarty International Center (NIH/FIC)",
+    "abbrev": "FIC",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":520223
+    }
+  },
+  {
+    "key":"National Cancer Institute (NIH/NCI)",
+    "abbrev": "NCI",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":1086178
+    }
+  },
+  {
+    "key":"National Center for Complementary and Alternative Medicine (NIH/NCCAM)",
+    "abbrev": "NCCAM",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":1940998
+    }
+  },
+  {
+    "key":"National Center for Research Resources (NIH/NCRR)",
+    "abbrev": "NCRR",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":202068
+    }
+  },
+  {
+    "key":"National Eye Institute (NIH/NEI)",
+    "abbrev": "NEI",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":0
+    }
+  },
+  {
+    "key":"National Heart, Lung, and Blood Institute (NIH/NHLBI)",
+    "abbrev": "NHLBI",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":4967124
+    }
+  },
+  {
+    "key":"National Human Genome Research Institute (NIH/NHGRI)",
+    "abbrev": "NHGRI",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":596485
+    }
+  },
+  {
+    "key":"National Institute of Allergy and Infectious Diseases (NIH/NIAID)",
+    "abbrev": "NIAID",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":894477
+    }
+  },
+  {
+    "key":"National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIH/NIAMS)",
+    "abbrev": "NIAMS",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":493388
+    }
+  },
+  {
+    "key":"National Institute of Biomedical Imaging and Bioengineering (NIH/NIBIB)",
+    "abbrev": "NIBIB",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":1158393
+    }
+  },
+  {
+    "key":"National Institute of Child Health and Human Development (NIH/NICHD)",
+    "abbrev": "NICHD",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":3249584
+    }
+  },
+  {
+    "key":"National Institute of Diabetes and Digestive and Kidney Diseases (NIH/NIDDK)",
+    "abbrev": "NIDDK",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":4332634
+    }
+  },
+  {
+    "key":"National Institute of Environmental Health Sciences (NIH/NIEHS)",
+    "abbrev": "NIEHS",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":675110
+    }
+  },
+  {
+    "key":"National Institute of General Medical Sciences (NIH/NIGMS)",
+    "abbrev": "NIGMS",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":4056203
+    }
+  },
+  {
+    "key":"National Institute of Mental Health (NIH/NIMH)",
+    "abbrev": "NIMH",
+    "values":  {
+      "fiscalYear":2011,
+      "researchFunding":3560270
+    }
+  },
+  {
+    "key":"National Institute of Neurological Disorders and Stroke (NIH/NINDS)",
+    "abbrev": "NINDS",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":37885908
+    }
+  },
+  {
+    "key":"National Institute of Nursing Research (NIH/NINR)",
+    "abbrev": "NINR",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":2080466
+    }
+  },
+  {
+    "key":"National Institute on Aging (NIH/NIA)",
+    "abbrev": "NIA",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":231259198
+    }
+  },
+  {
+    "key":"National Institute on Deafness and Other Communication Disorders (NIH/NIDCD)",
+    "abbrev": "NIDCD",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":2530620
+    }
+  },
+  {
+    "key":"National Institute on Drug Abuse (NIH/NIDA)",
+    "abbrev": "NIDA",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":589537
+    }
+  },
+  {
+    "key":"National Institute on Minority Health and Health Disparities (NIH/NIMHD)",
+    "abbrev": "NIMHD",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":0
+    }
+  },
+  {
+    "key":"National Institutes of Health (NIH)",
+    "abbrev": "NIH",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":307536014
+    }
+  },
+  {
+    "key":"Office of the Director (NIH/OD)",
+    "abbrev": "OD",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":5457150
+    }
+  },
+  {
+    "key":"United States Army Medical Research and Materiel Command ",
+    "abbrev": "USAMR",
+    "values": {
+      "fiscalYear":2011,
+      "researchFunding":12992586
+    }
+  } 
+] 
