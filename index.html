@@ -22,13 +22,11 @@
             }
 
             .bar {
-                fill: #cdcdcd;
+                fill: #871F78;
             }
 
             .axis line, .axis path, .axis text { 
-                fill: none;
-                stroke: black;
-                stroke-width:1px;
+                fill: black;
                 shape-rendering: crispEdges;
                 font-family: Times;
                 font-size: 7px;
@@ -43,11 +41,14 @@
 
          <select id="selection">
             <option>Select year</option>
-            <option id="2008">2008</option>
-            <option id="2009">2009</option>
-            <option id="2010">2010</option>
-            <option id="2011">2011</option>
+            <option id="2008" value="working/2008.json">2008</option>
+            <option id="2009" value="working/2009.json">2009</option>
+            <option id="2010" value="working/2010.json">2010</option>
+            <option id="2011" value="working/2011.json">2011</option>
         </select>
+
+        <div id="chartholder"></div>
+
         <script type="text/javascript">
 
             var margin = {top: 20, right: 10, bottom: 20, left: 10};
@@ -55,107 +56,107 @@
             var width = 800 - margin.left - margin.right,
                 height = 300 - margin.top - margin.bottom;
 
-            var svg = d3.select("body").append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-                .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            // var svg = d3.select("body").append("svg")
+            //     .attr("width", width + margin.left + margin.right)
+            //     .attr("height", height + margin.top + margin.bottom)
+            //     .append("g")
+            //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            //here's how you load data 
-            d3.json("working/2011.json", function(err, funding) {
+            var charts_data = [ ["working/2008.json", "fiscalYear", "researchFunding", 1],
+                                ["working/2009.json", "fiscalYear", "researchFunding", 1],
+                                ["working/2010.json", "fiscalYear", "researchFunding", 1],
+                                ["working/2011.json", "fiscalYear", "researchFunding", 1]
+                            ]
 
-                //console.log(funding)
-                funding.forEach(function(d){ 
+            //user made a change to the drop down menu
+            d3.select('#selection')
+              .on('change', function(){
 
-                //recasts TotalADResearchFunding and FY as numbers, not strings 
+               //removes previous svg
+               d3.select("svg")
+                 .remove();
+              
+              //creates a new svg and assigns it to the svg variable
+                var svg = d3.select('#chartholder')
+                  .append('svg')
+                  .attr("width", width + margin.left + margin.right)
+                  .attr("height", height + margin.top + margin.bottom)
+                  .append("g")
+                  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                //load in fresh JSON data based on the selection made
+                d3.json(this.options[this.selectedIndex].value, function(err, funding){
+
+                    funding.forEach(function(d){
+
+                    //recasts TotalADResearchFunding and FY as numbers, not strings 
                     d.values.researchFunding = +d.values.researchFunding;
                     d.values.fiscalYear = +d.values.fiscalYear;
-                });
 
-            // window.funding = funding;
+                    funding.sort(function(a, b) { return a.values.researchFunding - b.values.researchFunding; });
 
-            funding.sort(function(a, b) { return a.values.researchFunding - b.values.researchFunding; });
+                    //funding variable is the data for this set
+                    console.log(funding);
+
+                    var x = d3.scale.ordinal()
+                        .rangeRoundBands([0, width], .1)
+                        .domain(funding.map(function(d){return d.abbrev;}));
+
+                    var y = d3.scale.linear()
+                        .range([height, 0])
+                        .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; })]);
+
+                    var axisScale = d3.scale.linear()
+                        .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; }) ])
+                        .range([height, 0]);
+
+                    var xAxis = d3.svg.axis()
+                        .scale(x)
+                        .orient("bottom")
+                        .tickPadding([8]);
+
+                    var yAxis= d3.svg.axis()
+                       .scale(y)
+                       .orient("right");
+                    
+                    svg.selectAll(".bar")
+                       .data(funding)
+                       .enter().append("rect")
+                       .attr("class", "bar")
+                       .attr("x", function(d, i) { return x(d.abbrev); })
+                       .attr("width", x.rangeBand())
+                       .attr("y", function(d) { return y(d.values.researchFunding) })
+                       .attr("height", function(d) { return height - y(d.values.researchFunding) });
+                    
+                    svg.append("g")
+                        .attr("transform", "translate(0," + height + ")")
+                        // this assigns the "axis" class
+                        .attr("class", "axis")
+                        .call(xAxis);
+
+                    svg.append("g")
+                        .attr("class", "y axis")
+                        .call(yAxis);
+
+                })
+
+
+
+
+              });
 
             
-           
-                //computing the extent of my data for FY and total funding 
-                // var TotalADResearchFunding = d3.max(funding, function(d) { return d.TotalADResearchFunding; }),
-                //     FY1 = d3.min(funding, function(d) { return d.FY; }),
-                //     FY2 = d3.max(funding, function(d) {return d.FY; }),
-                //     FY  = FY1;
+                // for (var i = 0; i < charts_data.length; i++) {
+                //     var _this = charts_data[i];
+                //     //(function (_i) {
+                //         //here's how you load data 
+                //     d3.json(_this[0], function(err, funding) {
+
+                //         console.log(funding)
+                //         funding.forEach(function(d){ 
+          });
+
                 
-
-                var x = d3.scale.ordinal()
-                    .rangeRoundBands([0, width], .1)
-                    .domain(funding.map(function(d){return d.abbrev;}));
-
-                var y = d3.scale.linear()
-                    .range([height, 0])
-                    .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; })]);
-
-
-                var xAxis = d3.svg.axis()
-                    .scale(x)
-                    .orient("bottom")
-                    .tickPadding([8]);
-
-                var yAxis= d3.svg.axis()
-                    .scale(y)
-                    .orient("right");
-
-/*
-                var axisScale = d3.scale.linear()
-                    .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; })])
-                    .range([height, 0]);
-
-                var xScale = d3.scale.ordinal()
-                    .domain([0, funding.length])
-                    .range([0, width]);
-
-                var xAxis = d3.svg.axis()
-                    .scale(xScale)
-                    .orient("bottom");
-
-                var yScale = d3.scale.linear()
-                    .domain([50000, d3.max(funding, function(d) { return d.values.researchFunding; })])
-                    .range([0, height]);
-*/
-
-                //var yAxis = d3.svg.axis().scale(y).ticks(4).orient("left");
-
-                svg.selectAll(".bar")
-                    .data(funding)
-                    .enter().append("rect")
-                    .attr("class", "bar")
-                    .attr("x", function(d, i) { return x(d.abbrev); })
-                    .attr("width", x.rangeBand())
-                    .attr("y", function(d) { return y(d.values.researchFunding) })
-                    .attr("height", function(d) { return height - y(d.values.researchFunding) });
-
-                svg.append("g")
-                    .attr("transform", "translate(0," + height + ")")
-                    // this assigns the "axis" class
-                    .attr("class", "axis")
-                    .call(xAxis);
-
-                svg.append("g")
-                    .attr("class", "y axis")
-                    .call(yAxis);
-
-                // svg.append("g")
-                //     .attr("class", "y axis")
-                //     .call(yAxis);
-
-                d3.select('#selection')
-                   .on(#2008), function(d){
-                        console.log(this.options[working/2008.json].value);
-                        //window.location = this.options[this.selectedIndex].value
-
-                d3.selectAll('.bar')
-                    .on()
-                    }
-
-            });
           
         </script>
 
