@@ -24,13 +24,22 @@
             .bar {
                 fill: #871F78;
             }
-
-            .axis line, .axis path, .axis text { 
+            path {
                 fill: black;
-                shape-rendering: crispEdges;
-                font-family: Helvetica Neue;
-                font-size: 8px;
+                stroke-width: 1px;
             }
+            .axis line .axis path {
+                shape-rendering: crispEdges;
+                fill:none;
+                stroke:black;
+                stroke-width: 1px;
+            }
+
+            .axis text { 
+                font-family: Helvetica;
+                font-size: 11px;
+            }
+
 
 
         </style>
@@ -51,7 +60,7 @@
 
         <script type="text/javascript">
 
-            var margin = {top: 20, right: 10, bottom: 20, left: 10};
+            var margin = {top: 20, right: 100, bottom: 25, left: 10};
 
             var width = 800 - margin.left - margin.right,
                 height = 300 - margin.top - margin.bottom;
@@ -89,14 +98,15 @@
 
                     funding.forEach(function(d){
 
-                    //recasts TotalADResearchFunding and FY as numbers, not strings 
-                    d.values.researchFunding = +d.values.researchFunding;
-                    d.values.fiscalYear = +d.values.fiscalYear;
+                        //recasts TotalADResearchFunding and FY as numbers, not strings 
+                        d.values.researchFunding = +d.values.researchFunding;
+                        d.values.fiscalYear = +d.values.fiscalYear;
 
-                    funding.sort(function(a, b) { return a.values.researchFunding - b.values.researchFunding; });
+                        funding.sort(function(a, b) { return a.values.researchFunding - b.values.researchFunding; });
 
-                    //funding variable is the data for this set
-                    console.log(funding);
+                        //funding variable is the data for this set
+                        console.log(funding);
+                    });
 
                     var x = d3.scale.ordinal()
                         .rangeRoundBands([0, width], .1)
@@ -136,12 +146,8 @@
 
                     svg.append("g")
                         .attr("class", "y axis")
+                        .attr("transform", "translate(" + width + " ,0)")  
                         .call(yAxis);
-
-                })
-
-
-
 
               });
 
