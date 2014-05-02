@@ -16,6 +16,10 @@
                 background-color: #fffafa
           }
 
+            .text{
+                margin-right: 700px;
+            }
+
             .bar{
                 fill: #5C246E;
                 stroke: #B3B3B3;
@@ -55,7 +59,7 @@
             }
 
             .d3-tip {
-                line-height: 0.5;
+                line-height: 1;
                 font-weight: normal;
                 opacity: .95;
                 padding: 2px 8px;
@@ -71,8 +75,9 @@
         <script src="assets/d3.v3/d3.v3.js"></script>
         <script src="http://www.labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
         <div class="text">
-            <h3>Where does the money come from?</h3>
-            <p style="font-size:12px">Federal funding for Alzheimer's disease research comes from a variety of sources. Though<br> dominated by agencies like the NIH and NIA, nonprofit organizations like the Alzheimer's<br> Association and venture philanthropy groups like the Alzheimer's Drug Discovery<br> Foundation play increasingly important roles as federal funding decrease. Click on the year<br> to see how funding changes and which agencies become major players.</p>
+            <h3>How does the Alzheimer's Association stack up?</h3>
+            <p style="font-size:12px">Federal Alzheimer's disease research funding is mostly centralized in the NIA, but other institutes under the umbrella of the NIH also contribute funds to new experiments. With the low and inconsistent levels of federal funding, nonprofit organizations like the Alzheimer's Association and venture philanthropy groups like the Alzheimer's Drug Discovery Foundation play increasingly important roles in supporting the work of researchers. Click on the year to see how funding changes and which institutes and organizations received the most.<br/>
+            <br/>Data from the <a href="http://iadrp.nia.nih.gov/cadro-web/" target='blank'>International Alzheimer's Disease Research Portfolio.</a></p>
         </div>
 
          <select id="selection">
@@ -103,7 +108,7 @@
                d3.select("svg")
                  .remove();
 
-            var margin = {top: 60, right: 30, bottom: 50, left: 90};
+            var margin = {top: 60, right: 50, bottom: 50, left: 90};
 
             var width = 1000 - margin.left - margin.right,
                 height = 600 - margin.top - margin.bottom;
