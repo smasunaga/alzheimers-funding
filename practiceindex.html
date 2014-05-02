@@ -14,7 +14,7 @@
                 top:10px;
                 left: 120px;
                 text-align: left;
-                background-color: #fffafa
+                background-color: #fffafa;
           }
 
             svg {
@@ -24,14 +24,15 @@
             .bar {
                 fill: #871F78;
             }
-            path {
-                fill: black;
-                stroke-width: 1px;
+
+            .bar.highlight{
+                fill: #9C6B98;
             }
-            .axis line .axis path {
+
+            /*.axis line .axis path{
                 shape-rendering: crispEdges;
                 fill:none;
-                stroke:black;
+                stroke: #000;
                 stroke-width: 1px;
             }
 
@@ -39,12 +40,12 @@
                 font-family: Helvetica;
                 font-size: 11px;
             }
-
-
+*/
 
         </style>
     </head>
     <body>
+
         <h3> Following the money for Alzheimer's disease research</h3>
         <p style="font-size:12px">Federal funding for Alzheimer's disease research comes from a variety of sources. Though<br> dominated by agencies like the NIH and NIA, nonprofit organizations like the Alzheimer's<br> Association and venture philanthropy groups like the Alzheimer's Drug Discovery<br> Foundation play increasingly important roles as federal funding decrease. Click on the year<br> to see how funding changes and which agencies become major players.</p>
 
@@ -59,10 +60,10 @@
         <div id="chartholder"></div>
 
         <script type="text/javascript">
-
+          
             var margin = {top: 20, right: 100, bottom: 25, left: 10};
 
-            var width = 800 - margin.left - margin.right,
+            var width = 1200 - margin.left - margin.right,
                 height = 300 - margin.top - margin.bottom;
 
             // var svg = d3.select("body").append("svg")
@@ -105,8 +106,8 @@
                         funding.sort(function(a, b) { return a.values.researchFunding - b.values.researchFunding; });
 
                         //funding variable is the data for this set
-                        console.log(funding);
-                    });
+                    //     console.log(funding);
+                    // });
 
                     var x = d3.scale.ordinal()
                         .rangeRoundBands([0, width], .1)
@@ -114,7 +115,7 @@
 
                     var y = d3.scale.linear()
                         .range([height, 0])
-                        .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; })]);
+                        .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; }) ]);
 
                     var axisScale = d3.scale.linear()
                         .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; }) ])
@@ -138,7 +139,15 @@
                        .attr("x", function(d, i) { return x(d.abbrev); })
                        .attr("width", x.rangeBand())
                        .attr("y", function(d) { return y(d.values.researchFunding) })
-                       .attr("height", function(d) { return height - y(d.values.researchFunding) });
+                       .attr("height", function(d) { return height - y(d.values.researchFunding) })
+                       
+                       // here is how you make the bars highlight on hover
+                       .on("mouseover", function() {
+                            d3.select(this).classed("highlight", true);
+                       })
+                       .on("mouseout", function() {
+                        d3.select(this).classed("highlight", false);
+                       });
                     
                     svg.append("g")
                         .attr("transform", "translate(0," + height + ")")
@@ -163,11 +172,10 @@
                 //         console.log(funding)
                 //         funding.forEach(function(d){ 
           });
-
-                
+   
+          });
           
         </script>
-
 
     </body>
 </html>     

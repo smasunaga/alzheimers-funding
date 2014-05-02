@@ -1,6 +1,6 @@
 [
   {
-    "key":"Administration on Aging (AoA)",
+    "key":"Administration on Aging",
     "abbrev": "AoA",
     "values": {
       "fiscalYear":2011,
@@ -8,7 +8,7 @@
     }
   },
   {
-    "key":"Agency for Healthcare Research and Quality (AHRQ)",
+    "key":"Agency for Healthcare Research and Quality",
     "abbrev": "AHRQ",
     "values": {
       "fiscalYear":2011,
@@ -40,7 +40,7 @@
     }
   },
   {
-    "key":"Centers for Disease Control and Prevention (CDC)",
+    "key":"Centers for Disease Control and Prevention",
     "abbrev": "CDC",
     "values": {
       "fiscalYear":2011,
@@ -48,7 +48,7 @@
     }
   },
   {
-    "key":"Department of Veterans Affairs (VA)",
+    "key":"Department of Veterans Affairs",
     "abbrev": "VA",
     "values": {
       "fiscalYear":2011,
@@ -56,7 +56,7 @@
     }
   },
   {
-    "key":"Fogarty International Center (NIH/FIC)",
+    "key":"Fogarty International Center",
     "abbrev": "FIC",
     "values": {
       "fiscalYear":2011,
@@ -64,7 +64,7 @@
     }
   },
   {
-    "key":"National Cancer Institute (NIH/NCI)",
+    "key":"National Cancer Institute",
     "abbrev": "NCI",
     "values": {
       "fiscalYear":2011,
@@ -72,7 +72,7 @@
     }
   },
   {
-    "key":"National Center for Complementary and Alternative Medicine (NIH/NCCAM)",
+    "key":"National Center for Complementary and Alternative Medicine",
     "abbrev": "NCCAM",
     "values": {
       "fiscalYear":2011,
@@ -80,7 +80,7 @@
     }
   },
   {
-    "key":"National Center for Research Resources (NIH/NCRR)",
+    "key":"National Center for Research Resources",
     "abbrev": "NCRR",
     "values": {
       "fiscalYear":2011,
@@ -88,15 +88,7 @@
     }
   },
   {
-    "key":"National Eye Institute (NIH/NEI)",
-    "abbrev": "NEI",
-    "values": {
-      "fiscalYear":2011,
-      "researchFunding":0
-    }
-  },
-  {
-    "key":"National Heart, Lung, and Blood Institute (NIH/NHLBI)",
+    "key":"National Heart, Lung, and Blood Institute",
     "abbrev": "NHLBI",
     "values": {
       "fiscalYear":2011,
@@ -104,7 +96,7 @@
     }
   },
   {
-    "key":"National Human Genome Research Institute (NIH/NHGRI)",
+    "key":"National Human Genome Research Institute",
     "abbrev": "NHGRI",
     "values": {
       "fiscalYear":2011,
@@ -112,7 +104,7 @@
     }
   },
   {
-    "key":"National Institute of Allergy and Infectious Diseases (NIH/NIAID)",
+    "key":"National Institute of Allergy and Infectious Diseases",
     "abbrev": "NIAID",
     "values": {
       "fiscalYear":2011,
@@ -120,7 +112,7 @@
     }
   },
   {
-    "key":"National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIH/NIAMS)",
+    "key":"National Institute of Arthritis and Musculoskeletal and Skin Diseases",
     "abbrev": "NIAMS",
     "values": {
       "fiscalYear":2011,
@@ -128,7 +120,7 @@
     }
   },
   {
-    "key":"National Institute of Biomedical Imaging and Bioengineering (NIH/NIBIB)",
+    "key":"National Institute of Biomedical Imaging and Bioengineering",
     "abbrev": "NIBIB",
     "values": {
       "fiscalYear":2011,
@@ -136,7 +128,7 @@
     }
   },
   {
-    "key":"National Institute of Child Health and Human Development (NIH/NICHD)",
+    "key":"National Institute of Child Health and Human Development",
     "abbrev": "NICHD",
     "values": {
       "fiscalYear":2011,
@@ -144,7 +136,7 @@
     }
   },
   {
-    "key":"National Institute of Diabetes and Digestive and Kidney Diseases (NIH/NIDDK)",
+    "key":"National Institute of Diabetes and Digestive and Kidney Diseases",
     "abbrev": "NIDDK",
     "values": {
       "fiscalYear":2011,
@@ -152,7 +144,7 @@
     }
   },
   {
-    "key":"National Institute of Environmental Health Sciences (NIH/NIEHS)",
+    "key":"National Institute of Environmental Health Sciences",
     "abbrev": "NIEHS",
     "values": {
       "fiscalYear":2011,
@@ -160,7 +152,7 @@
     }
   },
   {
-    "key":"National Institute of General Medical Sciences (NIH/NIGMS)",
+    "key":"National Institute of General Medical Sciences",
     "abbrev": "NIGMS",
     "values": {
       "fiscalYear":2011,
@@ -168,7 +160,7 @@
     }
   },
   {
-    "key":"National Institute of Mental Health (NIH/NIMH)",
+    "key":"National Institute of Mental Health",
     "abbrev": "NIMH",
     "values":  {
       "fiscalYear":2011,
@@ -176,7 +168,7 @@
     }
   },
   {
-    "key":"National Institute of Neurological Disorders and Stroke (NIH/NINDS)",
+    "key":"National Institute of Neurological Disorders and Stroke",
     "abbrev": "NINDS",
     "values": {
       "fiscalYear":2011,
@@ -184,7 +176,7 @@
     }
   },
   {
-    "key":"National Institute of Nursing Research (NIH/NINR)",
+    "key":"National Institute of Nursing Research",
     "abbrev": "NINR",
     "values": {
       "fiscalYear":2011,
@@ -192,7 +184,7 @@
     }
   },
   {
-    "key":"National Institute on Aging (NIH/NIA)",
+    "key":"National Institute on Aging",
     "abbrev": "NIA",
     "values": {
       "fiscalYear":2011,
@@ -200,7 +192,7 @@
     }
   },
   {
-    "key":"National Institute on Deafness and Other Communication Disorders (NIH/NIDCD)",
+    "key":"National Institute on Deafness and Other Communication Disorders",
     "abbrev": "NIDCD",
     "values": {
       "fiscalYear":2011,
@@ -208,7 +200,7 @@
     }
   },
   {
-    "key":"National Institute on Drug Abuse (NIH/NIDA)",
+    "key":"National Institute on Drug Abuse",
     "abbrev": "NIDA",
     "values": {
       "fiscalYear":2011,
@@ -216,15 +208,7 @@
     }
   },
   {
-    "key":"National Institute on Minority Health and Health Disparities (NIH/NIMHD)",
-    "abbrev": "NIMHD",
-    "values": {
-      "fiscalYear":2011,
-      "researchFunding":0
-    }
-  },
-  {
-    "key":"National Institutes of Health (NIH)",
+    "key":"National Institutes of Health",
     "abbrev": "NIH",
     "values": {
       "fiscalYear":2011,
@@ -232,7 +216,7 @@
     }
   },
   {
-    "key":"Office of the Director (NIH/OD)",
+    "key":"Office of the Director",
     "abbrev": "OD",
     "values": {
       "fiscalYear":2011,
