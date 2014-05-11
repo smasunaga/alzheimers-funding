@@ -76,8 +76,8 @@
         <script src="http://www.labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
         <div class="text">
             <h3>How does the Alzheimer's Association stack up?</h3>
-            <p style="font-size:12px">Federal Alzheimer's disease research funding is mostly centralized in the NIA, but other institutes under the umbrella of the NIH also contribute funds to new experiments. With the low and inconsistent levels of federal funding, nonprofit organizations like the Alzheimer's Association and venture philanthropy groups like the Alzheimer's Drug Discovery Foundation play increasingly important roles in supporting the work of researchers. Click on the year to see how funding changes and which institutes and organizations received the most.<br/>
-            <br/>Data from the <a href="http://iadrp.nia.nih.gov/cadro-web/" target='blank'>International Alzheimer's Disease Research Portfolio.</a></p>
+            <p style="font-size:12px">Funding for Alzheimer's disease research is mostly centralized in the National Institutes of Health and the National Institute on Aging. But with total federal funding for Alzheimer's very low compared to other major diseases, nonprofit organizations like the Alzheimer's Association and venture philanthropy groups like the Alzheimer's Drug Discovery Foundation play important roles in supporting the work of researchers. Click on a year to see how the funding provided by the different institutes and organizations compares each year and roll over the chart for details.<br/>
+            </p>
         </div>
 
          <select id="selection">
@@ -100,9 +100,10 @@
                                 ["working/2011.json", "key", "fiscalYear", "researchFunding", 1]
                             ]
 
+
             //user made a change to the drop down menu
             d3.select('#selection')
-              .on('change', function(){
+             .on('change', function(){
 
                //removes previous svg
                d3.select("svg")
@@ -110,8 +111,8 @@
 
             var margin = {top: 60, right: 50, bottom: 50, left: 90};
 
-            var width = 1000 - margin.left - margin.right,
-                height = 600 - margin.top - margin.bottom;
+            var width = 800 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom;
   
             //creates a new svg and assigns it to the svg variable
             var svg = d3.select('#chartholder')
@@ -120,6 +121,17 @@
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            var ticks = [0,75000000,150000000,225000000,300000000,375000000];
+
+            var y = d3.scale.linear()
+                .domain([0, 375000000])
+                .range([height, 0]);
+
+             var yAxis= d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .tickValues(ticks);
 
             //load in fresh JSON data based on the selection made
             d3.json(this.options[this.selectedIndex].value, function(err, funding){
@@ -130,11 +142,16 @@
                     d.values.researchFunding = +d.values.researchFunding;
                     d.values.fiscalYear = +d.values.fiscalYear;
 
-                    funding.sort(function(a, b) { return a.values.researchFunding - b.values.researchFunding; });
+                    funding.sort(function(a, b) { return a.values.researchFunding - b.values.researchFunding; })
 
                     //funding variable is the data for this set
                     console.log(funding);
                 });
+
+            //my addition
+            d3.select(window)
+                .on('keydown', function() { altKey = d3.event.altKey; })
+                .on('keyup', function() { altKey = false; });
 
             var padding = -10;
 
@@ -143,9 +160,9 @@
                 .rangeRoundBands([width, 0], .1)
                 .domain(funding.map(function(d){return d.abbrev;}));
 
-            var y = d3.scale.linear()
-                .range([height, 0])
-                .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; }) ]);
+            // var y = d3.scale.linear()
+            //     .range([height, 0])
+            //     .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; }) ]);
             
             var axisScale = d3.scale.linear()
                 .domain([0, d3.max(funding, function(d) { return d.values.researchFunding; }) ])
@@ -156,10 +173,10 @@
                         .orient("bottom")
                         .ticks(6);
 
-            var yAxis= d3.svg.axis()
-                .scale(y)
-                .orient("left")
-                .ticks(6);
+            // var yAxis= d3.svg.axis()
+            //     .scale(y)
+            //     .orient("left")
+            //     .ticks(6);
 
             // change the numbers to currency
             var formatNumber  = d3.format(",.2f"), 
@@ -168,7 +185,7 @@
             // tooltip code for labels
             var tip = d3.tip()
                 .attr('class', 'd3-tip')
-                .offset([15, -40])
+                .offset([20, -80])
                 .direction('n')
                 .html(function(d) {
                     return '<h5>' + d.key + '</h5><p>' + formatCurrency(d.values.researchFunding) + '</p>';
@@ -181,6 +198,7 @@
                 barsEnter = bars.enter().append('g')
                             .classed('bar', true)
                             .attr('transform', function(d) { return 'translate(' + x(d.abbrev) + ',' + 0 + ')'; } )
+
                 displayEnter = barsEnter.append('rect')
                                   .classed('display', true)
                                   .attr('width', x.rangeBand() )
@@ -197,14 +215,6 @@
                                   .on('mouseover', tip.show)
                                   .on('mouseout', tip.hide);
                        
-                // // here is how you make the bars highlight on hover
-                // .on("mouseover", function() {
-                //      d3.select(this).classed("highlight", true);
-                // })
-                // .on("mouseout", function() {
-                //  d3.select(this).classed("highlight", false);
-                // });
-
                     
             svg.append("g")
                 .attr("transform", "translate(0," + height + ")")
@@ -232,6 +242,6 @@
           
         </script>
 
-
+    <p>Data from the <a href="http://iadrp.nia.nih.gov/cadro-web/" target='blank'>International Alzheimer's Disease Research Portfolio.</a></p>
     </body>
 </html>     
